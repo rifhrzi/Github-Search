@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#EBBDFF</color>
     <color name="mainColor">#F09AFF</color>
+    <color name="searchBar">#B9B9B9</color>
 </resources>

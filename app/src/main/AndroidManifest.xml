@@ -21,6 +21,9 @@
             android:name=".ui.detail.DetailUserActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.theme.NightSwitchActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>

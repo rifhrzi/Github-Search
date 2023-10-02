@@ -4,4 +4,6 @@
     <string name="tab_1">Followers</string>
     <string name="tab_2">Following</string>
     <string name="favorite_user">Favorite User</string>
+    <string name="search">Search</string>
+    <string name="switch_to_night">Switch to night</string>
 </resources>
