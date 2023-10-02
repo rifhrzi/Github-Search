@@ -1,15 +1,20 @@
 package com.example.github.ui.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.github.R
 import com.example.github.data.model.User
 import com.example.github.databinding.ActivityMainBinding
 import com.example.github.ui.detail.DetailUserActivity
+import com.example.github.ui.favorite.FavoriteActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -31,6 +36,8 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClicked(data: User) {
                 Intent(this@MainActivity, DetailUserActivity::class.java).also {
                     it.putExtra(DetailUserActivity.EXTRA_USERNAME, data.login)
+                    it.putExtra(DetailUserActivity.EXTRA_ID, data.id)
+                    it.putExtra(DetailUserActivity.EXTRA_URL, data.avatar_url)
                     startActivity(it)
                 }
             }
@@ -55,6 +62,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 return@setOnKeyListener false
             }
+            favoriteMenu.setOnClickListener{
+                val isFavoriteMenu = favoriteMenu.isPressed
+                if (isFavoriteMenu) {
+                    Intent(this@MainActivity, FavoriteActivity::class.java).also {
+                        startActivity(it)
+                    }
+                }
+            }
+
         }
 
         viewModel.getSearchUser().observe(this) {
@@ -84,4 +100,5 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
         }
     }
+
 }
